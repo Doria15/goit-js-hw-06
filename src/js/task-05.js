@@ -5,10 +5,10 @@ const outputElContent = outputEl.textContent;
 inputEl.addEventListener("input", handleInput);
 
 function handleInput(event) {
-  let inputValidation =
-    event.currentTarget.value > ""
-      ? (outputEl.textContent = event.currentTarget.value)
-      : (outputEl.textContent = outputElContent);
-
-  return inputValidation;
+  let inputValue = event.currentTarget.value.trim();
+  if (inputValue) {
+    outputEl.textContent = inputValue;
+  } else {
+    outputEl.textContent = "Anonymous";
+  }
 }
